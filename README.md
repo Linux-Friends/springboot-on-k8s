@@ -15,12 +15,11 @@ Docker Hub에 푸시한 뒤 Kubernetes에 NodePort와 LoadBalancer 방식으로 
 <br>
 
 ## 📍 Contents
-- [1️⃣ Goals](#1%EF%B8%8F⃣-goals)
-- [2️⃣ Architecture](#2%EF%B8%8F⃣-architecture)
-- [3️⃣ Skills](#3%EF%B8%8F⃣-skills)
-- [4️⃣ Project File Structure Example](#4%EF%B8%8F⃣-project-file-structure-example)
-- [5️⃣ Main Flow](#5%EF%B8%8F⃣-main-flow)
-- [6️⃣ Trouble Shooting](#6%EF%B8%8F⃣-trouble-shooting)
+- [🔧 기술 스택](#-기술-스택)
+- [📁 프로젝트 구성](#-프로젝트-구성)
+- [🐳 1. Docker Hub 업로드](#-1-docker-hub-업로드)
+- [🚀 2. NodePort 방식으로 Kubernetes 배포](#-2-nodeport-방식으로-kubernetes-배포)
+- [☁️ 3. LoadBalancer 방식으로 Kubernetes 배포](#%EF%B8%8F-3-loadbalancer-방식으로-kubernetes-배포)
 
 <br>
 
@@ -48,7 +47,7 @@ Docker Hub에 푸시한 뒤 Kubernetes에 NodePort와 LoadBalancer 방식으로 
 
 <br>
 
-## 🐳 1. Docker 이미지 빌드 및 Docker Hub 업로드
+## 🐳 1. Docker Hub 업로드
 
 ### ✅ Dockerfile 예시
 
@@ -181,11 +180,4 @@ kubectl get service
 
 ### ✅ 접속
 브라우저에서 접속: `http://<EXTERNAL-IP>:8081`
-
-### ✅ 결과 요약
-항목	결과
-Docker 이미지 빌드	✅ 완료
-Docker Hub 업로드	✅ 완료
-Kubernetes 배포 (NodePort)	✅ 2개 Pod 실행 및 접속 성공
-Kubernetes 배포 (LoadBalancer)	✅ 외부 접속 가능하게 구성
 

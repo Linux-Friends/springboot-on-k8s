@@ -171,12 +171,29 @@ kubectl apply -f myjar-loadbalancer.yaml
 
 kubectl get all
 
-# ❗ EXTERNAL-IP가 <pending>이면?
+```
+
+
+**🚫 EXTERNAL-IP가 <pending>이면?** 
+<br>
+minikube의 경우 기본적으로 LoadBalancer를 사용할 수 없음
+- LoadBalancer 타입의 서비스는 클라우드 환경(예: AWS, GCP, Azure)에서
+클라우드 Load Balancer 리소스를 자동으로 생성 및 연결해줍니다.
+- Minikube는 로컬 환경(Docker/VM 기반) 으로 클러스터를 구성하므로,
+외부 IP를 가진 LoadBalancer를 프로비저닝할 수 있는 인프라가 없음 -> EXTERNAL-IP는 <pending> 상태로 남음
+
+<br>
+
+**👉 minikube tunnel 명령어를 사용하면 Minikube가 가상의 LoadBalancer를 터널링 방식으로 흉내내어 EXTERNAL-IP가 할당**
+
+```bash
 minikube tunnel
 
 # 터널링 실행 후 다시 확인
 kubectl get service
 ```
+
+
 
 ### ✅ 접속
 브라우저에서 접속: `http://<EXTERNAL-IP>:8081`
